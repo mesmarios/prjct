@@ -11,6 +11,7 @@ type ManifestItem = {
 export function InfiniteCanvasSection() {
   const [media, setMedia] = useState<MediaItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isCanvasActive, setIsCanvasActive] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -56,33 +57,45 @@ export function InfiniteCanvasSection() {
   }, [media.length]);
 
   return (
-    <section className="relative h-[260vh] border-t border-current/10">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="absolute left-0 top-0 z-20 p-6 sm:p-8">
-          <p className="text-xs uppercase tracking-[0.22em] opacity-70">Infinite Archive Canvas</p>
-          <p className="mt-2 max-w-sm text-sm opacity-60">
-            Scroll to move deeper in the archive. When you reach the end, page scroll continues normally.
-          </p>
-        </div>
-
-        {!isLoaded && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-[var(--background)]">
-            <p className="text-sm opacity-60">Loading archive images...</p>
+    <section className="relative h-[230vh] border-t border-current/10 bg-white">
+      <div className="sticky top-0 flex h-screen items-center justify-center px-6 py-10 sm:px-10">
+        <div className="w-full max-w-6xl">
+          <div className="mb-4 text-center">
+            <p className="text-xs uppercase tracking-[0.22em] opacity-70">Infinite Archive Canvas</p>
+            <p className="mt-2 text-sm opacity-60">
+              Scroll inside the rectangle to explore. Scroll outside it to continue down the page.
+            </p>
           </div>
-        )}
 
-        {isLoaded && media.length > 0 && (
-          <InfiniteCanvas
-            media={media}
-            minCameraZ={20}
-            maxCameraZ={maxCameraZ}
-            showControls
-            backgroundColor="#f6f4ef"
-            fogColor="#f6f4ef"
-            fogNear={110}
-            fogFar={285}
-          />
-        )}
+          <div
+            className="relative mx-auto h-[68vh] w-full overflow-hidden rounded-sm border border-black/15 bg-[#f6f4ef] shadow-[0_18px_50px_rgba(0,0,0,0.12)]"
+            onMouseEnter={() => setIsCanvasActive(true)}
+            onMouseLeave={() => setIsCanvasActive(false)}
+            onFocus={() => setIsCanvasActive(true)}
+            onBlur={() => setIsCanvasActive(false)}
+            onTouchStart={() => setIsCanvasActive(true)}
+          >
+            {!isLoaded && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center bg-[var(--background)]">
+                <p className="text-sm opacity-60">Loading archive images...</p>
+              </div>
+            )}
+
+            {isLoaded && media.length > 0 && (
+              <InfiniteCanvas
+                media={media}
+                enableScrollZoom={isCanvasActive}
+                minCameraZ={20}
+                maxCameraZ={maxCameraZ}
+                showControls
+                backgroundColor="#f6f4ef"
+                fogColor="#f6f4ef"
+                fogNear={110}
+                fogFar={285}
+              />
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

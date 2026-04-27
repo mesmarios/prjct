@@ -290,11 +290,13 @@ const createInitialState = (camZ: number): ControllerState => ({
 function SceneController({
   media,
   onTextureProgress,
+  enableScrollZoom,
   minCameraZ,
   maxCameraZ,
 }: {
   media: MediaItem[];
   onTextureProgress?: (progress: number) => void;
+  enableScrollZoom: boolean;
   minCameraZ: number;
   maxCameraZ: number;
 }) {
@@ -329,6 +331,9 @@ function SceneController({
     };
 
     const onMouseDown = (e: MouseEvent) => {
+      if (!enableScrollZoom) {
+        return;
+      }
       // Just start dragging - keep drift frozen at current value
       s.isDragging = true;
       s.lastMouse = { x: e.clientX, y: e.clientY };
@@ -347,6 +352,9 @@ function SceneController({
     };
 
     const onMouseMove = (e: MouseEvent) => {
+      if (!enableScrollZoom) {
+        return;
+      }
       s.mouse = {
         x: (e.clientX / window.innerWidth) * 2 - 1,
         y: -(e.clientY / window.innerHeight) * 2 + 1,
@@ -360,6 +368,9 @@ function SceneController({
     };
 
     const onWheel = (e: WheelEvent) => {
+      if (!enableScrollZoom) {
+        return;
+      }
       if ((e.deltaY > 0 && s.basePos.z >= maxCameraZ) || (e.deltaY < 0 && s.basePos.z <= minCameraZ)) {
         return;
       }
@@ -403,7 +414,7 @@ function SceneController({
 
     canvas.addEventListener("mousedown", onMouseDown);
     window.addEventListener("mouseup", onMouseUp);
-    window.addEventListener("mousemove", onMouseMove);
+    canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mouseleave", onMouseLeave);
     canvas.addEventListener("wheel", onWheel, { passive: false });
     canvas.addEventListener("touchstart", onTouchStart, { passive: false });
@@ -413,14 +424,14 @@ function SceneController({
     return () => {
       canvas.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
-      window.removeEventListener("mousemove", onMouseMove);
+      canvas.removeEventListener("mousemove", onMouseMove);
       canvas.removeEventListener("mouseleave", onMouseLeave);
       canvas.removeEventListener("wheel", onWheel);
       canvas.removeEventListener("touchstart", onTouchStart);
       canvas.removeEventListener("touchmove", onTouchMove);
       canvas.removeEventListener("touchend", onTouchEnd);
     };
-  }, [gl, maxCameraZ, minCameraZ]);
+  }, [enableScrollZoom, gl, maxCameraZ, minCameraZ]);
 
   useFrame(() => {
     const s = state.current;
@@ -529,6 +540,7 @@ export function InfiniteCanvasScene({
   onTextureProgress,
   showFps = false,
   showControls = false,
+  enableScrollZoom = true,
   minCameraZ = 20,
   maxCameraZ = 260,
   cameraFov = 60,
@@ -561,6 +573,7 @@ export function InfiniteCanvasScene({
           <SceneController
             media={media}
             onTextureProgress={onTextureProgress}
+            enableScrollZoom={enableScrollZoom}
             minCameraZ={minCameraZ}
             maxCameraZ={maxCameraZ}
           />

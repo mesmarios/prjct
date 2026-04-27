@@ -11,6 +11,7 @@ export type InfiniteCanvasProps = {
   onTextureProgress?: (progress: number) => void;
   showFps?: boolean;
   showControls?: boolean;
+  enableScrollZoom?: boolean;
   minCameraZ?: number;
   maxCameraZ?: number;
   cameraFov?: number;
