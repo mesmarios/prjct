@@ -2,6 +2,13 @@ import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ContentSection } from './components/ContentSection';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import archivesImg from '../assets/haavara.png';
+import judea from '../assets/judeadeclareswar.png';
+import boyc from '../assets/boycott1.png';
+import boyc1 from '../assets/boycott2.png';
+import boyc2 from '../assets/boycott3.png';
+import boyc3 from '../assets/boycott4.png';
+
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -64,7 +71,7 @@ export default function App() {
             animate={{ opacity: 0.95, y: 0 }}
             transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            The scales of justice measure truth through the weight of history
+            Η ζυγαριά της δικαιοσύνης ζυγίζει την αλήθεια με το βάρος της ιστορίας
           </motion.h1>
         </motion.div>
 
@@ -77,31 +84,59 @@ export default function App() {
 
       {/* Content Sections */}
       <ContentSection
-        title="Archives of Accountability"
-        content="Throughout history, the pursuit of justice has required meticulous documentation. These archives preserve the evidence of wrongs committed and rights defended, ensuring that memory serves as a foundation for accountability. Each record represents not just a case, but a human story demanding recognition."
-        imageSrc="https://images.unsplash.com/photo-1568667256549-094345857637?w=1080&q=80"
+        title="Η Συμφωνία Μεταφοράς «Haavara»"
+        content="Η ναζιστική Γερμανία, για γεωπολιτικούς και προπαγανδιστικούς λόγους, επιδίωκε καλές σχέσεις με τον αραβικό κόσμο (ειδικά με τους Παλαιστίνιους Άραβες, αλλά και με χώρες όπως η Ιράκ, η Συρία, η Αίγυπτος), ελπίζοντας είτε να τους στρέψει εναντίον των Βρετανών και των Γάλλων αποικιοκρατών είτε να εξασφαλίσει πρόσβαση σε πετρέλαιο και στρατηγικές θέσεις.
+
+        Η συμφωνία Haavara, όμως, βοηθούσε άμεσα την εβραϊκή μετανάστευση και αποικισμό στην Παλαιστίνη — κάτι που οι Άραβες ηγέτες και ο πληθυσμός της περιοχής θεωρούσαν απειλή για τα εθνικά και εδαφικά τους συμφέροντα.
+
+        Έτσι, η «δυσαρέσκεια του αραβικού κόσμου» σημαίνει: Οι Ναζί γνώριζαν ότι η Haavara θα προκαλούσε θυμό, καχυποψία ή εχθρότητα από τους Άραβες απέναντι στη Γερμανία, επειδή η Γερμανία βοηθούσε τους Σιωνιστές εναντίον τους. Αυτό ήταν πρόβλημα για τον Χίτλερ, καθώς ήθελε να έχει τους Άραβες συμμάχους ή τουλάχιστον ουδέτερους.
+
+        Παρόλα αυτά, όπως τονίζει το κείμενο, ο Χίτλερ αποφάσισε τρεις φορές (1937-38) να συνεχίσει τη Haavara, γιατί ο στόχος της απομάκρυνσης των Εβραίων από τη Γερμανία ήταν σημαντικότερος από το διπλωματικό κόστος των τεταμένων σχέσεων με τους Άραβες. "
+
+        
+        imageSrc={archivesImg}
         imageAlt="Historical legal documents"
       />
 
       <ContentSection
-        title="Witness to Truth"
-        content="The testimony of those who lived through injustice carries a weight that transcends time. Their voices, preserved in depositions and oral histories, form an unbreakable chain of evidence. To bear witness is to participate in the ongoing work of justice, transforming personal experience into collective memory."
-        imageSrc="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1080&q=80"
+        title="Judea declares war"
+        content="υπήρχε ταυτόχρονη συνεργασία και εχθρότητα. Από τη μία, η Συμφωνία Haavara (1933-1939) ήταν κρατική συμφωνία μεταξύ ναζιστικής Γερμανίας και σιωνιστικών φορέων, η οποία εξυπηρέτησε τη μετανάστευση 50.000-60.000 Εβραίων και τη μεταφορά κεφαλαίων στην Παλαιστίνη. Από την άλλη, η πλειοψηφία του παγκόσμιου εβραϊσμού, και επισήμως η σιωνιστική ηγεσία μετά το 1939, αντιτάχθηκε στρατιωτικά και πολιτικά στο ναζιστικό καθεστώς.
+        Ο Βάιτσμαν δεν είχε την εξουσία να κηρύξει πόλεμο εξ ονόματος «των Εβραίων του κόσμου» ως κρατική οντότητα. Πρόκειται για ρητορική δέσμευση πολιτικής και ηθικής υποστήριξης, καθώς και για προσφορά πρακτικής βοήθειας (ανθρώπινο δυναμικό, τεχνική εμπειρία, οικονομικούς πόρους). Ουσιαστικά, ήταν μια διακήρυξη ότι το σιωνιστικό κίνημα τάσσεται με τις συμμαχικές δυνάμεις.
+        Ο Βάιτσμαν, ως πρόεδρος της Παγκόσμιας Σιωνιστικής Οργάνωσης και της Εβραϊκής Υπηρεσίας, έστειλε επιστολή στον Βρετανό πρωθυπουργό Νέβιλ Τσάμπερλεν, διαβεβαιώνοντάς τον ότι οι Εβραίοι της Παλαιστίνης και οι Εβραίοι παγκοσμίως θα σταθούν στο πλευρό της Βρετανίας στον πόλεμο κατά της Γερμανίας. Η φράση «οι Εβραίοι συμπαρατάσσονται με τη Μεγάλη Βρετανία και θα πολεμήσουν στο πλευρό των δημοκρατιών» αποδίδεται πράγματι σε αυτή την επιστολή ή σε δηλώσεις του εκείνη την περίοδο.
+        Ήδη από τις 24 Μαρτίου 1933, ο Παγκόσμιος Εβραϊσμός είχε κηρύξει πόλεμο κατά της Γερμανίας. Παρά τις καλύτερες προσπάθειες των Ναζί να συνεργαστούν με τους Σιωνιστές, οι οποίοι επίσης επιδίωκαν την απομάκρυνση των Εβραίων από τη Γερμανία, η γερμανική κυβέρνηση θεωρούσε τον εβραϊκό πληθυσμό ανατρεπτικό και δικαιολογούσε τη φυσική τους εκδίωξη επικαλούμενη ανακοινώσεις όπως αυτή."
+        
+        imageSrc={judea}
         imageAlt="Archival testimony records"
         reverse
       />
 
       <ContentSection
-        title="Restorative Frameworks"
-        content="Justice is not only punitive but restorative. The frameworks we build must acknowledge harm while creating pathways for healing. This requires institutional commitment to truth-telling, reparation, and structural change—mechanisms that honor the dignity of all affected parties and prevent future violations."
-        imageSrc="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1080&q=80"
+        title="BOYCOTT"
+        content="Η ανακοίνωση αυτή επαναλήφθηκε με πρωτοσέλιδους τίτλους σε πολλές εφημερίδες της εποχής. Ο Παγκόσμιος Εβραϊσμός δήλωσε έτσι τον εαυτό του ως εμπόλεμο μέρος στον Δεύτερο Παγκόσμιο Πόλεμο, και ως εκ τούτου υπήρχε επαρκής βάση σύμφωνα με το διεθνές δίκαιο για τους Γερμανούς να θέσουν υπό κράτηση τον εβραϊκό πληθυσμό ως εχθρική δύναμη. Σε απάντηση αυτών των εκστρατειών, η Εθνικοσοσιαλιστική κυβέρνηση οργάνωσε το δικό της μποϊκοτάζ των εβραϊκών επιχειρήσεων εντός της Γερμανίας.
+Αυτές οι εικόνες παρουσιάζονται τις περισσότερες φορές χωρίς να εξηγείται ότι ήταν αντιδράσεις στο εβραϊκής προέλευσης μποϊκοτάζ που περιγράφηκε παραπάνω.Μια μαζική συγκέντρωση Εβραίων στη Νέα Υόρκη, το 1933, που ζητούσε μποϊκοτάζ της Γερμανίας."
+        imageSrc={boyc}
         imageAlt="Legal framework documents"
       />
 
       <ContentSection
-        title="The Long Arc"
-        content="Progress toward justice is neither linear nor guaranteed. It demands sustained attention across generations, institutional reform, and cultural transformation. The arc bends only through deliberate effort—through research that uncovers hidden truths, advocacy that amplifies silenced voices, and systems that embed accountability into their foundations."
-        imageSrc="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1080&q=80"
+        title="Daily Express"
+        content="Το οργανωμένο εβραϊκό μποϊκοτάζ ανακοινώνεται στο Λονδίνο, το 1933, χρησιμοποιώντας τον ίδιο τίτλο όπως και στην Daily Express."
+        imageSrc={boyc1}
+        imageAlt="Historical timeline"
+        reverse
+      />
+
+      <ContentSection
+        title="Διαφήμιση των Αμερικανών Εβραίων"
+        content="Διαφήμιση των Αμερικανών Εβραίων Βετεράνων Πολέμου που καλεί σε μποϊκοτάζ της Γερμανίας, 1933. Το μποϊκοτάζ ξεκίνησε τον Μάρτιο του 1933 τόσο στην Ευρώπη όσο και στις ΗΠΑ και συνεχίστηκε μέχρι την είσοδο των ΗΠΑ στον πόλεμο."
+        imageSrc={boyc2}
+        imageAlt="Historical timeline"
+      />
+
+      <ContentSection
+        title="Το ναζιστικό μποϊκοτάζ των εβραϊκών επιχειρήσεων"
+        content="Το ναζιστικό μποϊκοτάζ των εβραϊκών επιχειρήσεων στη Γερμανία ήταν, σε αντίθεση με το εβραϊκό μποϊκοτάζ της Γερμανίας, ένα μονοήμερο γεγονός που πραγματοποιήθηκε την 1η Απριλίου 1933. Εικόνες όπως αυτές παρουσιάζονται πάντα χωρίς την εξήγηση ότι το ναζιστικό μποϊκοτάζ ήταν απλώς μια αντίδραση στα διεθνή εβραϊκά μέτρα που εφαρμόζονταν αλλού στον κόσμο."
+        imageSrc={boyc3}
         imageAlt="Historical timeline"
         reverse
       />
