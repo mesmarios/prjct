@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ContentSection } from './components/ContentSection';
 import { InfiniteCanvasSection } from './components/InfiniteCanvasSection';
+import { EditorialGallerySection } from './components/EditorialGallerySection';
 import archivesImg from '../assets/haavara.png';
 import judea from '../assets/judeadeclareswar.png';
 import boyc from '../assets/boycott1.png';
 import boyc1 from '../assets/boycott2.png';
 import boyc2 from '../assets/boycott3.png';
 import boyc3 from '../assets/boycott4.png';
+import nsdapleader from '../assets/nsdapleader.png';
+import gustloffmurder from '../assets/gustloffmurder.png';
+import nazissmash from '../assets/nazissmash.png';
 
 
 export default function App() {
@@ -142,6 +146,49 @@ export default function App() {
       />
 
       <InfiniteCanvasSection />
+
+      <EditorialGallerySection
+        heading="Archive Notes and Visual Evidence"
+        subheading="This block is a second storytelling style under the infinite canvas. Add or edit cards from the items array in App.tsx to keep extending your narrative."
+        items={[
+          {
+            id: 'note-01',
+            eyebrow: 'Document Cluster',
+            title: 'Ο ηγέτης του NSDAP στην Ελβετία, Βίλχελμ Γκούστλοφ, δολοφονημένος από τον Εβραίο Ντέιβιντ Φράνκφουρτερ, δεξιά',
+            body: 'Η πρώτη δολοφονία συνέβη στις 4 Φεβρουαρίου 1936, όταν ο Εβραίος Ντέιβιντ Φράνκφουρτερ πυροβόλησε μέχρι θανάτου τον Βίλχελμ Γκούστλοφ, τον Γερμανό ηγέτη του Ναζιστικού Κόμματος στην Ελβετία. Η δολοφονία του Γκούστλοφ προκάλεσε οργή στη Γερμανία, και στην κηδεία του παρευρέθηκαν δεκάδες χιλιάδες πενθούντες, συμπεριλαμβανομένων των Χίτλερ, Γκέμπελς, Γκέρινγκ, Χίμλερ και του Γερμανού υπουργού Εξωτερικών Γιοαχίμ φον Ρίμπεντροπ. Ο Γκούστλοφ ανακηρύχθηκε ναζιστικός Blutzeuge (μάρτυρας) και ένα μεγάλο πλοίο πήρε το όνομά του.',
+            imageSrc: nsdapleader,
+            imageAlt: 'Archival transfer document',
+          },
+          {
+            id: 'note-02',
+            eyebrow: 'Press Material',
+            title: 'Ο Γερμανός διπλωμάτης στο Παρίσι, Ερνστ φομ Ρατ, δολοφονημένος από τον Εβραίο Χέρσελ Γκρίνσπαν, δεξιά.',
+            body: 'Η οργή του γερμανικού κοινού για τη δολοφονία Γκούστλοφ είχε μόλις υποχωρήσει όταν ο Εβραίος Χέρσελ Γκρίνσπαν δολοφόνησε τον Γερμανό διπλωμάτη Ερνστ φομ Ρατ εντός της γερμανικής πρεσβείας στο Παρίσι στις 7 Νοεμβρίου 1938.',
+            imageSrc: gustloffmurder,
+            imageAlt: 'Historic headline board',
+          },
+          {
+            id: 'note-03',
+            eyebrow: 'Visual Record',
+            title: 'Ναζί και Σιωνιστές πριν τον Πόλεμο',
+            body: 'Όταν η είδηση της δεύτερης δολοφονίας έφτασε στη Γερμανία, οργισμένα πλήθη βγήκαν στους δρόμους σε ολόκληρη τη Γερμανία και επιτέθηκαν σε εβραϊκά καταστήματα και συναγωγές.'+
+
+            'Η σφοδρότητα της αντίδρασης αιφνιδίασε την ηγεσία της Γερμανίας, και οι επιθέσεις σταμάτησαν μόνο αφού ο Γκέμπελς εξέδωσε δημόσια διαταγή να σταματήσει η βία, όπως αναφέρθηκε στους New York Times της 11ης Νοεμβρίου 1938.' +
+
+            'Η ίδια εφημερίδα ανέφερε επίσης ότι οι επιθέσεις ήταν «εκδίκηση» για τη δολοφονία του φομ Ρατ.',
+            imageSrc: nazissmash,
+            imageAlt: 'Crowd and protest visuals',
+          },
+          {
+            id: 'note-04',
+            eyebrow: 'Comparative View',
+            title: 'Ναζί και Σιωνιστές πριν τον Πόλεμο',
+            body: 'Ακόμη και οι New York Times παραδέχτηκαν στο ρεπορτάζ τους για τα γεγονότα της Kristallnacht ότι ο Γκέμπελς και η ναζιστική ηγεσία ήταν εκείνοι που σταμάτησαν τη βία. Το γεγονός αυτό αγνοείται πάντα από τους αφηγητές του Ολοκαυτώματος.',
+            imageSrc: nazissmash,
+            imageAlt: 'Comparative archival collage',
+          },
+        ]}
+      />
 
       {/* Footer */}
       <footer className="py-24 border-t border-current/10">
