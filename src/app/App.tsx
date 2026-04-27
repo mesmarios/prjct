@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ContentSection } from './components/ContentSection';
-import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { InfiniteCanvasSection } from './components/InfiniteCanvasSection';
 import archivesImg from '../assets/haavara.png';
 import judea from '../assets/judeadeclareswar.png';
 import boyc from '../assets/boycott1.png';
@@ -140,6 +140,8 @@ export default function App() {
         imageAlt="Historical timeline"
         reverse
       />
+
+      <InfiniteCanvasSection />
 
       {/* Footer */}
       <footer className="py-24 border-t border-current/10">
